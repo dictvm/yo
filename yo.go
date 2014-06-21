@@ -1,5 +1,9 @@
 package main
 
 func main() {
-        println("Yo")
+	yo := make(chan string)
+	go func() {
+		yo <- "Yo"
+	}()
+	println(<-yo)
 }
